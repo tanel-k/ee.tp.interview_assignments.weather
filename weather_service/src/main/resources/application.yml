@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: weather-service
+
+forecast:
+  source-api:
+    host: http://www.ilmateenistus.ee
+    path: /ilma_andmed/xml/forecast.php
+    parameters:
+      - lang: eng
+
+  processing:
+    cached-response-valid-for: ${FORECAST_PROCESSING_CACHED_RESPONSE_VALID_FOR:1h}
+
+  stream:
+    refresh-delay: ${FORECAST_STREAM_REFRESH_DELAY:0}
+    refresh-rate: ${FORECAST_STREAM_REFRESH_RATE:1m}
