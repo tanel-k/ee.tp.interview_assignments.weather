@@ -1,4 +1,4 @@
-package ee.tp.interview_assignments.weather.service.forecast_source.dto;
+package ee.tp.interview_assignments.weather.service.external.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

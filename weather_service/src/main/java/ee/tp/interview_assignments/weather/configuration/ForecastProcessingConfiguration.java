@@ -5,14 +5,12 @@ import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
-import java.util.Map;
+import java.time.Duration;
 
 @ConstructorBinding
-@ConfigurationProperties(prefix = "forecast.source")
+@ConfigurationProperties(prefix = "forecast.processing")
 @Getter
 @AllArgsConstructor
-public class ForecastSourceConfiguration {
-    private final String host;
-    private final String path;
-    private final Map<String, String> parameters;
+public class ForecastProcessingConfiguration {
+    private final Duration cachedResponseValidFor;
 }

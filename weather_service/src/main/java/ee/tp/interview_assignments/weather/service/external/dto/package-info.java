@@ -1,7 +1,7 @@
 @XmlJavaTypeAdapters({
     @XmlJavaTypeAdapter(value = LocalDateXmlAdapter.class, type = LocalDate.class)
 })
-package ee.tp.interview_assignments.weather.service.forecast_source.dto;
+package ee.tp.interview_assignments.weather.service.external.dto;
 
 import ee.tp.interview_assignments.weather.util.jaxb.LocalDateXmlAdapter;
 
