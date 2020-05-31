@@ -10,7 +10,7 @@ forecast:
       - lang: eng
 
   processing:
-    cached-response-valid-for: ${FORECAST_PROCESSING_RESPONSE_VALIDITY_PERIOD:1h}
+    cached-response-valid-for: ${FORECAST_PROCESSING_CACHED_RESPONSE_VALID_FOR:1h}
 
   stream:
     refresh-delay: ${FORECAST_STREAM_REFRESH_DELAY:0}
