@@ -9,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ForecastDto {
     private final String text;
-    private final String phenomenon;
-    private final Integer minTemperature;
-    private final Integer maxTemperature;
+    private final Phenomenon phenomenon;
+    private final Integer minTemperatureCelsius;
+    private final Integer maxTemperatureCelsius;
 }
