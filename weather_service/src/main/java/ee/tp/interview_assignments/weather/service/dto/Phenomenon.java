@@ -3,6 +3,8 @@ package ee.tp.interview_assignments.weather.service.dto;
 // From API docs: http://www.ilmateenistus.ee/teenused/ilmainfo/eesti-prognoos-xml/
 @SuppressWarnings("unused")
 public enum Phenomenon {
+    // Not strictly needed, but if migrated to DB table,
+    // can be supplemented with additional information that the UI can use to provide enhanced visual input for the user.
     CLEAR,
     FEW_CLOUDS,
     VARIABLE_CLOUDS,

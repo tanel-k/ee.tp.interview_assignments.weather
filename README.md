@@ -21,3 +21,11 @@ Implemented a fairly basic SSE-based solution.
 ## Attributions
 
 TODO.
+
+## Instructions
+
+If you have access to IntelliJ IDEA, simply import the gradle project and run the entry point class.
+
+Otherwise, `./gradlew bootJar` will generate a runnable JAR file for you.
+
+Run the JAR and access [index.html](http://localhost:8080/index.html).
