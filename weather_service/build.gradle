@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.3.0.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'com.github.node-gradle.node' version '2.2.4'
 }
 
 group = 'ee.tp.interview_assignments'
@@ -29,3 +30,29 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 }
+
+node {
+    version = '10.16.3'
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir = file("${project.buildDir}/npm")
+}
+
+task appNpmInstall(type: NpmTask) {
+    workingDir = file("${project.projectDir}/src/frontend")
+    args = ["install"]
+}
+
+task appNpmBuild(type: NpmTask) {
+    dependsOn appNpmInstall
+    workingDir = file("${project.projectDir}/src/frontend")
+    args = ["run", "build"]
+}
+
+task copyWebApp(type: Copy) {
+    dependsOn appNpmBuild
+    from 'src/frontend/build'
+    into 'build/resources/main/static/.'
+}
+
+compileJava.dependsOn copyWebApp
