@@ -19,8 +19,11 @@ Implemented a fairly basic SSE-based solution.
 ![](ui-demo.gif)
 
 ## Attributions
-
-TODO.
+* Front-end spun up with [Create React App](https://github.com/facebook/create-react-app);
+* Front-end uses [Material UI](https://material-ui.com);
+* Weather icons provided by [react-icons-react](https://github.com/najens/weather-icons-react);
+* Web service boilerplate generated with [Spring Initializr](https://start.spring.io);
+* Web service built on [Spring WebFlux](https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/web-reactive.html).
 
 ## Instructions
 
