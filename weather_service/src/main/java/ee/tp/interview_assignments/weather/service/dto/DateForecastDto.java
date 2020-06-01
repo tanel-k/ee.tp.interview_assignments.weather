@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Builder
 @AllArgsConstructor
 public class DateForecastDto {
-    private final LocalDate date;
+    private final Date date;
     private final ForecastDto day;
     private final ForecastDto night;
 }

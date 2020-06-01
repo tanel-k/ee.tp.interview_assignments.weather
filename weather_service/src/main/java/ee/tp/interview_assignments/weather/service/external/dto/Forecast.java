@@ -20,7 +20,7 @@ public class Forecast {
     @XmlElement(name = "text", nillable = true)
     private String text;
     @XmlElement(name = "tempmin")
-    private Integer minTemperature;
+    private Integer minTemperatureCelsius;
     @XmlElement(name = "tempmax")
-    private Integer maxTemperature;
+    private Integer maxTemperatureCelsius;
 }

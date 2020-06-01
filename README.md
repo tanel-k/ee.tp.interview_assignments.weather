@@ -9,3 +9,15 @@ and displays a relevant weather forecast to the user in a human-readable format.
 * No limitations are set on the front-end framework, so use whatever framework you want and design the page however you see fit.
 * The application should use Gradle as the build environment and should be easy to compile and run.
 * After building the application, please send us the source code for evaluation.
+
+# Results
+
+## Demo
+
+Implemented a fairly basic SSE-based solution.
+
+![](ui-demo.gif)
+
+## Attributions
+
+TODO.

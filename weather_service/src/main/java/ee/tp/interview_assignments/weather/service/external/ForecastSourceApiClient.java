@@ -4,14 +4,17 @@ import ee.tp.interview_assignments.weather.configuration.ForecastSourceApiConfig
 import ee.tp.interview_assignments.weather.service.dto.DateForecastDto;
 import ee.tp.interview_assignments.weather.service.dto.ForecastDto;
 import ee.tp.interview_assignments.weather.service.dto.ForecastListDto;
+import ee.tp.interview_assignments.weather.service.dto.Phenomenon;
 import ee.tp.interview_assignments.weather.service.external.dto.DateForecast;
 import ee.tp.interview_assignments.weather.service.external.dto.Forecast;
 import ee.tp.interview_assignments.weather.service.external.dto.Forecasts;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Service
+@Slf4j
 public class ForecastSourceApiClient {
     private final WebClient webClient;
     private final ForecastSourceApiConfiguration configuration;
@@ -47,10 +50,25 @@ public class ForecastSourceApiClient {
 
     private ForecastDto mapForecast(Forecast forecast) {
         return ForecastDto.builder()
-            .phenomenon(forecast.getPhenomenon())
+            .phenomenon(parsePhenomenon(forecast.getPhenomenon()))
             .text(forecast.getText())
-            .minTemperature(forecast.getMinTemperature())
-            .maxTemperature(forecast.getMaxTemperature())
+            .minTemperatureCelsius(forecast.getMinTemperatureCelsius())
+            .maxTemperatureCelsius(forecast.getMaxTemperatureCelsius())
             .build();
+    }
+
+    private Phenomenon parsePhenomenon(String phenomenon) {
+        if (phenomenon == null) {
+            return null;
+        }
+
+        try {
+            return Phenomenon.valueOf(
+                phenomenon.toUpperCase().replace(" ", "_")
+            );
+        } catch (IllegalArgumentException ex) {
+            log.warn("String `{}` has no matching constant in {}.", phenomenon, Phenomenon.class.getName());
+            return null;
+        }
     }
 }
