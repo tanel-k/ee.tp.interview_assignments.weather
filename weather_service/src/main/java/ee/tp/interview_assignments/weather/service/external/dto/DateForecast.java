@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
+import java.time.LocalDate;
 
 @XmlRootElement
 @Getter
@@ -18,7 +18,7 @@ import java.util.Date;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DateForecast {
     @XmlAttribute(name = "date")
-    private Date date;
+    private LocalDate date;
     @XmlElement(name = "day")
     private Forecast day;
     @XmlElement(name = "night")

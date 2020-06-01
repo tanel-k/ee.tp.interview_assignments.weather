@@ -18,16 +18,12 @@ const App = () => {
 
     return (
         <Grid container direction="column" spacing={5} justify="center">
-            <Grid item container direction="row">
-                <Grid item xs={12}>
-                    <Typography variant="h4" align='center'>
-                        Weather Forecast
-                    </Typography>
-                </Grid>
+            <Grid item xs={12}>
+                <Typography variant="h4" align='center'>
+                    Weather Forecast
+                </Typography>
             </Grid>
-            <Grid item container
-                  direction="row" justify="center"
-                  spacing={5}>
+            <Grid item container justify="center" spacing={5}>
                 {forecasts.length ? (
                     forecasts.map((forecast) => (
                         <DateForecast forecast={forecast} key={forecast.date} />
@@ -37,6 +33,11 @@ const App = () => {
                         <DateForecast key={key} />
                     ))
                 )}
+            </Grid>
+            <Grid item xs={12}>
+                <Typography variant="subtitle2" align="center">
+                    Data provided by <a href={"http://www.ilmateenistus.ee"}>Riigi Ilmateenistus</a>.
+                </Typography>
             </Grid>
         </Grid>
     );
