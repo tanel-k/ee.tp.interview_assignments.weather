@@ -36,7 +36,8 @@ import ForecastDto from "../domain/forecast.dto";
 
 const useStyles = makeStyles(() => ({
     root: {
-        width: 310
+        minWidth: 235,
+        maxWidth: 325
     }
 }));
 
