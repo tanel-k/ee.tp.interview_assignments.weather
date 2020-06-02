@@ -41,7 +41,7 @@ const DateForecast = ({forecast}: DateForecastProps) => {
         <Grid item>
             <Card>
                 <CardHeader
-                    title={dateTitle ? dateTitle : <Skeleton width={309} />}
+                    title={dateTitle ? dateTitle : <Skeleton />}
                     subheader={dateSubtitle ? dateSubtitle : <Skeleton />}
                 />
                 <CardContent>
