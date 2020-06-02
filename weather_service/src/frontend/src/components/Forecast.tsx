@@ -4,6 +4,8 @@ import React from "react";
 
 import {Grid, Typography} from "@material-ui/core";
 import {Skeleton} from '@material-ui/lab';
+import {makeStyles} from "@material-ui/core/styles";
+
 import {
     WiCelsius,
     WiDayCloudy,
@@ -32,6 +34,12 @@ import {
 import {Phenomenon} from "../domain/phenomenon";
 import ForecastDto from "../domain/forecast.dto";
 
+const useStyles = makeStyles(() => ({
+    root: {
+        width: 310
+    }
+}));
+
 type ForecastProps = {
     period: 'DAY' | 'NIGHT';
     forecast?: ForecastDto;
@@ -51,8 +59,9 @@ const Forecast = ({
         phenomenonName = getDisplayName(phenomenon);
     }
 
+    const classes = useStyles();
     return (
-        <Grid container justify="space-around" spacing={1}>
+        <Grid container justify="space-around" spacing={1} className={classes.root}>
             <Grid item xs={12}>
                 <Typography variant="subtitle1">
                     {periodName}
@@ -90,7 +99,7 @@ const getDisplayName = (phenomenon?: Phenomenon) => {
         return '';
     }
 
-    const name = phenomenon.toString();
+    const name = phenomenon as string;
     return name.charAt(0) + name.slice(1).replace(/_/g, " ").toLowerCase();
 };
 
