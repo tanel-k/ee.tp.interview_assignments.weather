@@ -91,7 +91,7 @@ const getDisplayName = (phenomenon?: Phenomenon) => {
     }
 
     const name = phenomenon.toString();
-    return name.charAt(0) + name.slice(1).replace("_", " ").toLowerCase();
+    return name.charAt(0) + name.slice(1).replace(/_/g, " ").toLowerCase();
 };
 
 const getIcon = (period: 'DAY' | 'NIGHT', phenomenon?: Phenomenon) => {
