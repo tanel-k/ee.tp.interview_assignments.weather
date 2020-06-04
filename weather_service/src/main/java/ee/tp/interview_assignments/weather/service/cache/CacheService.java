@@ -33,7 +33,10 @@ public class CacheService {
                 key
             )
             .onCacheMissResume(retrieveOnCacheMiss.map(data -> wrap(data, cfgSupplier)))
-            .andWriteWith((k, sig) -> Mono.fromRunnable(() -> storeRef.updateAndGet(ctx -> ctx.put(k, sig.get()))))
+            .andWriteWith((k, sig) -> Mono.justOrEmpty(sig.get())
+                .doOnNext((value) -> storeRef.updateAndGet(ctx -> ctx.put(k, value)))
+                .then()
+            )
             .map(cachedItem -> cachedItem.data);
     }
 
